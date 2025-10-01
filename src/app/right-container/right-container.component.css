@@ -353,3 +353,54 @@
     width: 30px;
     height: 30px;
 }
+
+.humidity {
+    flex: 4;
+    font-size: 32px;
+    font-weight: 500;
+    margin-right: 100px;
+    text-align: left;
+}
+
+.humidity-status {
+    flex: 1;
+    font-size: small;
+    font-weight: bold;
+    margin: 10px;
+    margin-left: 20px;
+    align-self: self-start;
+}
+
+.Visibility {
+    flex: 4;
+    font-size: 32px;
+    font-weight: 500;
+    margin-right: 80px;
+    text-align: left;
+}
+
+.visibility-status {
+    flex: 1;
+    font-size: small;
+    font-weight: bold;
+    margin: 10px;
+    margin-left: 20px;
+    align-self: self-start;
+}
+
+.AirQuality {
+    flex: 4;
+    font-size: 32px;
+    font-weight: 500;
+    margin-right: 100px;
+    text-align: left;
+}
+
+.AirQuality-status {
+    flex: 1;
+    font-size: small;
+    font-weight: bold;
+    margin: 10px;
+    margin-left: 20px;
+    align-self: self-start;
+}
