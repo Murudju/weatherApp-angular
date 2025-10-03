@@ -17,5 +17,5 @@ export class LeftContainerComponent {
   faCloud:any = faCloud;
   faCloudRain:any = faCloudRain;
 
-  constructor(weatherService:WeatherService){}
+  constructor(public weatherService:WeatherService){}
 }

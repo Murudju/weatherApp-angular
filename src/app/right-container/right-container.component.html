@@ -1,133 +1,43 @@
 <div class="right-container">
     <div class="right-container-nav-bar">
         <div class="nav-bar-tabs">
-            <div class="today" (click)="onTodayClick()" [className]="today == true ? 'today today-active' : 'today' ">Today</div>
-            <div class="week" (click)="onWeekClick()" [className]="week == true ? 'week week-active' : 'week' ">Week</div>
-            <div class="underline" [className]="today == true ? 'underline underline-today' : 'underline underline-week' "></div>
+            <div class="today" (click)="onTodayClick()" [className]="this.weatherService.today == true ? 'today today-active' : 'today' ">Today</div>
+            <div class="week" (click)="onWeekClick()" [className]="this.weatherService.week == true ? 'week week-active' : 'week' ">Week</div>
+            <div class="underline" [className]="this.weatherService.today == true ? 'underline underline-today' : 'underline underline-week' "></div>
         </div>
 
         <div class="nav-bar-metric">
-            <div class="celsius" (click)="onCelsiusClick()" [className]="celsius == true ? 'celsius celsius-active' : 'celsius' ">°C</div>
-            <div class="fahrenheit" (click)="onFahrenheitClick()" [className]="fahrenheit == true ? 'fahrenheit fahrenheit-active' : 'fahrenheit' ">°F</div>
+            <div class="celsius" (click)="onCelsiusClick()" [className]="this.weatherService.celsius == true ? 'celsius celsius-active' : 'celsius' ">°C</div>
+            <div class="fahrenheit" (click)="onFahrenheitClick()" [className]="this.weatherService.fahrenheit == true ? 'fahrenheit fahrenheit-active' : 'fahrenheit' ">°F</div>
             <div class="profile-image"><img src="https://cdn-icons-png.flaticon.com/128/6532/6532058.png" alt=""></div>
         </div>
     </div>
     <div class="right-container-data-box">
-        <div class="right-container-week-cards-celsius" *ngIf="celsius == true">
-        <div class="right-container-week-cards" *ngIf="week == true " >
-            <div class="card">
-                <div class="card-day">Пн</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+15° </span> <span class="temp-min">+3°</span></div>
-            </div>
-             <div class="card">
-                <div class="card-day">Вт</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/1163/1163657.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+12° </span> <span class="temp-min">+2°</span></div>
-            </div>
-             <div class="card">
-                <div class="card-day">Ср</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+9° </span> <span class="temp-min">+1°</span></div>
-            </div>
-             <div class="card">
-                <div class="card-day">Чт</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/4735/4735146.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+8° </span> <span class="temp-min">+2°</span></div>
-            </div>
-             <div class="card">
-                <div class="card-day">Пт</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/1163/1163661.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+5° </span> <span class="temp-min">+3°</span></div>
-            </div>
-             <div class="card">
-                <div class="card-day">Сб</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/4735/4735146.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+4° </span> <span class="temp-min">-4°</span></div>
-            </div>
-             <div class="card">
-                <div class="card-day">Вс</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/4814/4814293.png" alt=""></div>
-                <div class="card-temp-value"><span class="temp-max">+3° </span> <span class="temp-min">-3°</span></div>
-            </div>
-        </div>
-        </div>
-
-        <div class="right-container-week-cards-fahrenheit" *ngIf="fahrenheit == true">
-            <div class="right-container-week-cards" *ngIf="week == true " >
-                <div class="card">
-                    <div class="card-day">Пн</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">59° </span> <span class="temp-min">37,4°</span></div>
-                </div>
-                <div class="card">
-                    <div class="card-day">Вт</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/1163/1163657.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">53,6° </span> <span class="temp-min">35,6°</span></div>
-                </div>
-                <div class="card">
-                    <div class="card-day">Ср</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">48,2° </span> <span class="temp-min">33,8°</span></div>
-                </div>
-                <div class="card">
-                    <div class="card-day">Чт</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/4735/4735146.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">46,4° </span> <span class="temp-min">35,6°</span></div>
-                </div>
-                <div class="card">
-                    <div class="card-day">Пт</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/1163/1163661.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">41° </span> <span class="temp-min">37,4°</span></div>
-                </div>
-                <div class="card">
-                    <div class="card-day">Сб</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/4735/4735146.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">39,2° </span> <span class="temp-min">24,8°</span></div>
-                </div>
-                <div class="card">
-                    <div class="card-day">Вс</div>
-                    <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/4814/4814293.png" alt=""></div>
-                    <div class="card-temp-value"><span class="temp-max">37,4° </span> <span class="temp-min">26,6°</span></div>
-                </div>
+        <div class="right-container-week-cards-celsius" *ngIf="this.weatherService.celsius == true">
+        <div class="right-container-week-cards" *ngIf="this.weatherService.week == true " >
+            <div class="card" *ngFor="let card of weatherService.weekData">
+                <div class="card-day">{{ card.day }}</div>
+                <div class="card-temp-img"> <img src="{{ card.summaryImage }}" alt=""></div>
+                <div class="card-temp-value"><span class="temp-max">{{ this.weatherService.celsius == true ? card.tempMax : this.weatherService.celciusToFahrenheit(card.tempMax)}}° </span> <span class="temp-min">{{ this.weatherService.celsius == true ? card.tempMin : this.weatherService.celciusToFahrenheit(card.tempMin)}}°</span></div>
             </div>
         </div>
 
-        <div class="right-container-today-cards" *ngIf="today == true">
-            <div class="card">
-                <div class="card-day">12:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
+        <div class="right-container-week-cards-fahrenheit" *ngIf="this.weatherService.fahrenheit == true">
+            <div class="right-container-week-cards" *ngIf="this.weatherService.week == true " >
+                <div class="card" *ngFor="let card of weatherService.weekData">
+                    <div class="card-day">{{ card.day }}</div>
+                    <div class="card-temp-img"> <img src="{{ card.summaryImage }}" alt=""></div>
+                    <div class="card-temp-value"><span class="temp-max">{{ this.weatherService.fahrenheit == true ? card.tempMax : this.weatherService.fahrenheitToCelsius(card.tempMax)}}° </span> <span class="temp-min">{{ this.weatherService.celsius == true ? card.tempMin : this.weatherService.celciusToFahrenheit(card.tempMin)}}°</span></div>
+                </div>
+                
             </div>
-            <div class="card">
-                <div class="card-day">14:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
-            </div>
-            <div class="card">
-                <div class="card-day">16:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
-            </div>
-            <div class="card">
-                <div class="card-day">18:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
-            </div>
-            <div class="card">
-                <div class="card-day">20:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
-            </div>
-            <div class="card">
-                <div class="card-day">22:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
-            </div>
-            <div class="card">
-                <div class="card-day">00:00</div>
-                <div class="card-temp-img"> <img src="https://cdn-icons-png.flaticon.com/128/6566/6566029.png" alt=""></div>
-                <div class="card-temp-value"></div>
+        </div>
+
+        <div class="right-container-today-cards" *ngIf="this.weatherService.today == true">
+            <div class="card" *ngFor="let card of weatherService.todayData">
+                <div class="card-day">{{ card.time }}</div>
+                <div class="card-temp-img"> <img src="{{ card.summaryImage }}" alt=""></div>
+                <div class="card-temp-value">{{ this.weatherService.fahrenheit == true ? card.temperature : this.weatherService.fahrenheitToCelsius(card.temperature)}}</div>
             </div>
         </div>
 
@@ -143,12 +53,12 @@
                             <div class="gauge__cover"></div>
                         </div>
                     </div>
-                    <div class="right-container-todays-highlight-value">5</div>
+                    <div class="right-container-todays-highlight-value">{{ this.weatherService.todaysHightlights.uvindex }}</div>
                 </div>
 
                 <div class="right-container-todays-highlight-card">
                     <div class="right-container-todays-highlight-card-title">Скорость ветра</div>
-                    <div class="wind-status-value">7.73 <span class="unit">км/ч</span></div>
+                    <div class="wind-status-value">{{ this.weatherService.todaysHightlights.windStatus }} <span class="unit">км/ч</span></div>
                     <div class="wind-status-logo"><img src="https://cdn-icons-png.flaticon.com/128/4005/4005767.png" alt=""></div>
                 </div>
 
@@ -157,11 +67,11 @@
                     <div class="sunrise-sunset-value">
                     <div class="sunrise">
                         <div class="sunrise-img"><img src="https://cdn-icons-png.flaticon.com/128/3222/3222792.png" alt=""></div>
-                        <div class="sunrise-time">6:35</div>
+                        <div class="sunrise-time">{{ this.weatherService.todaysHightlights.sunrise }}</div>
                     </div>
                     <div class="sunset">
                         <div class="sunset-img"><img src="https://cdn-icons-png.flaticon.com/128/3222/3222795.png" alt=""></div>
-                        <div class="sunset-time">17:45</div>
+                        <div class="sunset-time">{{ this.weatherService.todaysHightlights.sunset }}</div>
                     </div>
                   </div>
                 </div>
@@ -171,19 +81,19 @@
             <div class="right-container-todays-highlight-cards">
                 <div class="right-container-todays-highlight-card">
                     <div class="right-container-todays-highlight-card-title">Влажность</div>
-                    <div class="humidity">12 <span class="unit">%</span></div>
+                    <div class="humidity">{{ this.weatherService.todaysHightlights.humidity }} <span class="unit">%</span></div>
                     <div class="humidity-status">Нормально</div>
                     <div class="humidity-img"><img src=""></div>
                 </div>
                 <div class="right-container-todays-highlight-card">
                     <div class="right-container-todays-highlight-card-title">Видимость</div>
-                    <div class="Visibility">5.2 <span class="unit">км</span></div>
+                    <div class="Visibility">{{ this.weatherService.todaysHightlights.visibility }} <span class="unit">км</span></div>
                     <div class="visibility-status">Средняя</div>
                     <div class="visibiliti-img"><img src=""></div>
                 </div>
                 <div class="right-container-todays-highlight-card">
                     <div class="right-container-todays-highlight-card-title">Давление воздуха</div>
-                    <div class="AirQuality">105</div>
+                    <div class="AirQuality">{{ this.weatherService.todaysHightlights.airQuality }}</div>
                     <div class="AirQuality-status">Нездоровое</div>
                     <div class="AirQuality-img"><img src=""></div>
                 </div>

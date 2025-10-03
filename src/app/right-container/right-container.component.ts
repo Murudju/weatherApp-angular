@@ -1,35 +1,33 @@
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { WeatherService } from '../Services/weather.service';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-right-container',
-  imports: [NgIf],
+  imports: [NgIf, FaIconComponent, NgFor],
   templateUrl: './right-container.component.html',
   styleUrl: './right-container.component.css'
 })
 export class RightContainerComponent {
-  today:boolean = false;
-  week:boolean = true;
-
-  celsius:boolean = true;
-  fahrenheit:boolean = false;
+  constructor(public weatherService: WeatherService) {};
 
   onTodayClick() {
-    this.today = true;
-    this.week = false;
+    this.weatherService.today = true;
+    this.weatherService.week = false;
   }
 
   onWeekClick() {
-    this.week = true;
-    this.today = false;
+    this.weatherService.week = true;
+    this.weatherService.today = false;
   }
   onCelsiusClick() {
-    this.celsius = true;
-    this.fahrenheit = false;
+    this.weatherService.celsius = true;
+    this.weatherService.fahrenheit = false;
   }
 
   onFahrenheitClick() {
-    this.fahrenheit = true;
-    this.celsius = false;
+    this.weatherService.fahrenheit = true;
+    this.weatherService.celsius = false;
   }
 }
